@@ -1,8 +1,8 @@
 import { useCallback, useContext, useMemo } from 'react'
 
+import { LameContext } from '#components/LameContextProvider'
 import useUploadContext from '#hooks/useUploadContext'
 import convertTo from '#lamejs/convert'
-import { LameContext } from '#lamejs/LameContextProvider'
 
 const useLameContext = () => {
   const context = useContext(LameContext)

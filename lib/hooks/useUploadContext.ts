@@ -1,6 +1,6 @@
 import { useCallback, useContext, useMemo } from 'react'
 
-import { UploadContext } from '#lamejs/UploadContextProvider'
+import { UploadContext } from '#components/UploadContextProvider'
 
 const isValidWav = (file: File) => file.type === 'audio/wav'
 
