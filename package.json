@@ -1,8 +1,17 @@
 {
   "name": "squeezer",
-  "version": "0.0.1",
+  "version": "0.0.11",
   "description": "",
   "type": "module",
+  "license": "MIT",
+  "author": "Richard Unterberg <https://github.com/richard-unterberg>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/richard-unterberg/squeezer"
+  },
+  "bugs": {
+    "url": "https://github.com/richard-unterberg/squeezer/issues"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -12,7 +21,6 @@
     "lint": "eslint --fix --ext .js,.jsx,.ts,.tsx ."
   },
   "keywords": [],
-  "author": "",
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "^4.1.1",
     "@types/react": "^18.2.45",
