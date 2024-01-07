@@ -8,4 +8,7 @@ export enum ICON_ID {
   PencilRuler,
   Sailboat,
   Orbit,
+  AudioLines,
+  Drum,
+  FileVolume,
 }

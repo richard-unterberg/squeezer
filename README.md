@@ -1,29 +1,22 @@
-# TypeScript + React + Vike
-## feat. Tailwind CSS + ESLint + Prettier)
+# squeez
+## browser based wav to mp3 converter
 
-An SSR-ready vite-react starter with vike and my usual friends tailwind and lucide-icons 😙.
+Tired of searching for a reliable WAV to MP3 converter that doesn't come with limitations or require registrations? So was I. That's why I created this hassle-free solution to help you seamlessly convert your audio files in the browser. 🌊
 
-Features:
-- vike (vite + ssr)
-- Tailwind CSS
-- SPA + SSR
-- Fontsource
-- Custom Tailwind Theme Hook
-- Lucide Icons
-- ES6 Path Aliases (#components, #renderer)
-- Github-pages workflow
-- React Streaming enabled
-- Full Dev Setup
-  - ESLint
-  - Prettier + Prettier Sort Imports
-  - Husky + lint-staged
-  - editorconfig
+### Features:
+- Convert WAV to MP3
+- Download converted file
+- No file size limit
+- No registration required
+- No ads
+- No server required (Developers)
 
-Coming soon:
-- Client Side Fetching Example
-- Server Side Fetching Example
+### Coming soon:
+- Define bitrate of output file
+- Show status of conversion
+- Override sample rate and channels
 
-## Usage
+## Developers
 
 ### Install
 

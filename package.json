@@ -1,6 +1,6 @@
 {
-  "name": "ts-react-vike-start",
-  "version": "0.0.2",
+  "name": "squeez",
+  "version": "0.0.1",
   "description": "",
   "type": "module",
   "scripts": {
@@ -44,6 +44,7 @@
   "dependencies": {
     "@fontsource/inter": "^5.0.16",
     "@vitejs/plugin-react": "^4.2.1",
+    "lamejs": "zhuker/lamejs",
     "lucide-react": "^0.303.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -51,6 +52,7 @@
     "styled-components": "^6.1.1",
     "tailwind-styled-components": "^2.2.0",
     "tailwindcss": "^3.4.0",
-    "vike": "^0.4.152"
+    "vike": "^0.4.152",
+    "wavefile-reader": "^1.1.1"
   }
 }

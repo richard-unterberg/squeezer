@@ -1,1 +1,1 @@
-// some types
+export type LameJs = typeof import('lamejs')

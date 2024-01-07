@@ -4,7 +4,10 @@
  * todo: "minimize", "maximize", "close" icons
  */
 import {
+  AudioLines,
+  Drum,
   ExternalLink,
+  FileVolume2,
   Github,
   LucideProps,
   MagnetIcon,
@@ -34,6 +37,9 @@ const APP_ICON: ICON_TYPE = {
   [ICON_ID.PencilRuler]: { component: PencilRuler },
   [ICON_ID.Sailboat]: { component: Sailboat },
   [ICON_ID.Orbit]: { component: Orbit },
+  [ICON_ID.AudioLines]: { component: AudioLines },
+  [ICON_ID.Drum]: { component: Drum },
+  [ICON_ID.FileVolume]: { component: FileVolume2 },
 }
 
 export default APP_ICON

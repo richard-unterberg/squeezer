@@ -1,43 +1,70 @@
-import { useMemo } from 'react'
+import { useCallback, useMemo } from 'react'
 
 import { AppConfig } from '#lib/constants'
 import { usePageContext } from '#root/renderer/usePageContext'
 
 interface LinkProps {
-  href: string
+  href?: string
   external?: boolean
   children: React.ReactNode | React.ReactNode[]
   className?: string
-  button?: boolean
+  hasButtonStyle?: boolean
+  onClick?: () => void
 }
 
-const Link = ({ href, external, children, className = '', button }: LinkProps) => {
+const Link = ({ href, external, children, className = '', hasButtonStyle, onClick }: LinkProps) => {
   const pageContext = usePageContext()
   const { urlPathname } = pageContext
 
-  const isActive = useMemo(
-    () => (href === '/' ? urlPathname === href : urlPathname.startsWith(href)),
-    [href, urlPathname],
-  )
+  const isRouteActive = useMemo(() => {
+    if (!href) return true
+    if (href === '/') return urlPathname === '/'
+    return urlPathname.startsWith(href)
+  }, [href, urlPathname])
 
   const generatedClassName = useMemo(() => {
     const staticClassName = 'transition-colors duration-200 ease-in-out inline-block text-center'
 
-    if (button) {
+    if (hasButtonStyle) {
       return `${
-        isActive ? 'bg-primary pointer-events-none' : 'bg-primary bg-opacity-50 hover:bg-opacity-75'
-      } p-3 ${className} ${staticClassName} `
+        isRouteActive && href
+          ? 'bg-primary pointer-events-none'
+          : 'bg-primary bg-opacity-80 hover:bg-opacity-100 shadow-md'
+      } px-4 py-2 rounded-md ${className} ${staticClassName} `
     }
 
-    return `${isActive ? 'text-primary' : 'text-light'} ${className} ${staticClassName}`
-  }, [button, className, isActive])
+    return `${isRouteActive ? 'text-primary' : 'text-light'} ${className} ${staticClassName}`
+  }, [hasButtonStyle, isRouteActive, className, href])
+
+  const generatedHref = useMemo(
+    () => `${!external ? AppConfig.viteBaseUrl : ''}${href}`,
+    [external, href],
+  )
+
+  const handleClick = useCallback(
+    (eventToCancel: React.PointerEvent) => {
+      if (onClick) {
+        eventToCancel.preventDefault()
+        onClick()
+      }
+    },
+    [onClick],
+  )
+
+  if (!href)
+    return (
+      <button type="button" className={`${generatedClassName}`} onPointerDown={handleClick}>
+        {children}
+      </button>
+    )
 
   return (
     <a
-      href={`${!external ? AppConfig.viteBaseUrl : ''}${href}`}
+      href={generatedHref}
       className={generatedClassName}
       target={external ? '_blank' : '_self'}
       rel={external ? 'noreferrer' : ''}
+      onPointerDown={e => handleClick(e)}
     >
       {children}
     </a>

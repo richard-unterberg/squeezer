@@ -21,6 +21,8 @@
       "#utils/*": ["./lib/utils/*"],
       "#hooks/*": ["./lib/hooks/*"],
       "#types/*": ["./lib/types/*"],
+      "#pages/*": ["./pages/*"],
+      "#lamejs/*": ["./lamejs/*"],
       "#lib/*": ["./lib/*"],
       "#layouts/*": ["./layouts/*"],
       "#renderer/*": ["renderer/*"],

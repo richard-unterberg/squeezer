@@ -33,14 +33,16 @@ export default defineConfig({
     port: 4248,
   },
   ssr: {
-    noExternal: ['tailwind-styled-components'],
+    noExternal: ['tailwind-styled-components', 'wavefile-reader', 'riff-file'],
   },
   resolve: {
     alias: {
       '#utils': path.resolve(__dirname, './lib/utils/'),
       '#hooks': path.resolve(__dirname, './lib/hooks/'),
       '#types': path.resolve(__dirname, './lib/types/'),
+      '#lamejs': path.resolve(__dirname, './lamejs/'),
       '#lib': path.resolve(__dirname, './lib/'),
+      '#pages': path.resolve(__dirname, './pages/'),
       '#layouts': path.resolve(__dirname, './layouts/'),
       '#renderer': path.resolve(__dirname, './renderer/'),
       '#components': path.resolve(__dirname, './components/'),

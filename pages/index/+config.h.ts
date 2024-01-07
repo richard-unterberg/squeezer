@@ -1,5 +1,4 @@
 export default {
-  title: 'TypeScript + React + Vike | ts-react-vike-start',
-  description:
-    'Featuresome template to provide an additional setup to get TS-React working in Vite + Vike (Vite SSR) with HMR and handful of strict ESLint rules. I want to add to work with properly in my side projects.',
+  title: 'squeez - wav to mp3 converter - no registration, no ads, no tracking',
+  description: `Tired of searching for a reliable WAV to MP3 converter that doesn't come with limitations or require registrations? So was I. That's why I created this hassle-free solution to help you seamlessly convert your audio files in the browser. 💫`,
 }
