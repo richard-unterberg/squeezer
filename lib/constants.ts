@@ -1,5 +1,6 @@
 export const AppConfig = {
-  viteBaseUrl: '/squeez',
+  viteBaseUrl: '/squeezer',
+  defaultOutputBitrate: 320,
 }
 
-export const SomeIteration = [2, 4, 8, 16]
+export const OutputBitrates = [32, 40, 48, 56, 64, 80, 96, 112, 128, 192, 224, 256, 320]

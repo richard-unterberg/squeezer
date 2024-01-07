@@ -8,13 +8,12 @@ const Header = () => {
   const { spacing } = useAppTheme()
 
   return (
-    <div>
+    <header>
       <Popover>
-        <Link aria-label="to-github" href="https://github.com/richard-unterberg/squeez" external>
+        <Link aria-label="to-github" href="https://github.com/richard-unterberg/squeezer" external>
           <Icon icon={ICON_ID.Github} size={spacing(8)} className="text-dark" />
         </Link>
       </Popover>
-
       <div className="xs:block md:flex gap-6 mt-16 my-10 items-center">
         <Icon
           icon={ICON_ID.AudioLines}
@@ -22,19 +21,19 @@ const Header = () => {
           size={spacing(24)}
         />
         <div className="text-center md:text-left">
-          <h1 className="text-2xl md:text-3xl mb-2 font-bold">squeez</h1>
+          <p className="font-mono">wav-to-mp3</p>
+          <h1 className="text-2xl md:text-3xl mb-2 font-bold">squeezer</h1>
           <h2 className="font-normal mb-6">
-            browser based wav to mp3 converter
-            <br /> no registration, no ads, no tracking
+            free wav to mp3 converter - no registration, no ads, no tracking 🤯
           </h2>
         </div>
       </div>
       <p className="mb-10">
-        {`Tired of searching for a reliable WAV to MP3 converter that doesn't come with limitations or
-        require registrations? So was I. That's why I created this hassle-free solution to help you
-        seamlessly convert your audio files in the browser. 🌊`}
+        {`Tired of searching the web for a reliable WAV-to-MP3 converter that doesn't come with limitations or
+        require registrations? So was I. That's why I created this hassle-free solution to help you and me to
+        seamlessly convert audio files directly in the browser. 💫`}
       </p>
-    </div>
+    </header>
   )
 }
 

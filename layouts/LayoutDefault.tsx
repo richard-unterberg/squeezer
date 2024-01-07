@@ -3,13 +3,47 @@ import '@fontsource/inter/latin-700.css'
 import '#layouts/styles.css'
 
 import { ReactNode, StrictMode } from 'react'
+import Dropzone from 'react-dropzone'
 import { PageContextClient, PageContextServer } from 'vike/types'
 
+import useUploadContext from '#hooks/useUploadContext'
+import LameContextProvider from '#lamejs/LameContextProvider'
+import UploadContextProvider from '#lamejs/UploadContextProvider'
 import Footer from '#layouts/Footer'
 import Header from '#layouts/Header'
 import { PageContextProvider } from '#renderer/usePageContext'
 
-const LayoutDefault = ({
+const LayoutDefault = ({ children }: { children: ReactNode }) => {
+  const { isDropping, setIsDropping, setAttachments } = useUploadContext()
+
+  const handleDrop = (acceptedFiles: File[]) => {
+    setAttachments(acceptedFiles)
+    setIsDropping(false)
+  }
+
+  return (
+    <Dropzone
+      noClick
+      onDragOver={() => setIsDropping(true)}
+      onDragLeave={() => setIsDropping(false)}
+      onDrop={handleDrop}
+    >
+      {({ getRootProps }) => (
+        <div {...getRootProps()} className="absolute inset-0">
+          <div className={`max-w-4xl m-auto text-light ${isDropping ? 'opacity-10' : ''}`}>
+            <div className="relative container px-5 mx-auto text-white text-base">
+              <Header />
+              <div>{children}</div>
+              <Footer />
+            </div>
+          </div>
+        </div>
+      )}
+    </Dropzone>
+  )
+}
+
+const LayoutProviderWrapper = ({
   pageContext,
   children,
 }: {
@@ -18,15 +52,13 @@ const LayoutDefault = ({
 }) => (
   <StrictMode>
     <PageContextProvider pageContext={pageContext}>
-      <div className="max-w-4xl m-auto text-light">
-        <div className="relative container px-5 mx-auto text-white text-base">
-          <Header />
-          <div className="page-portal">{children}</div>
-          <Footer />
-        </div>
-      </div>
+      <UploadContextProvider>
+        <LameContextProvider>
+          <LayoutDefault>{children}</LayoutDefault>
+        </LameContextProvider>
+      </UploadContextProvider>
     </PageContextProvider>
   </StrictMode>
 )
 
-export default LayoutDefault
+export default LayoutProviderWrapper

@@ -1,7 +1,7 @@
 import { useCallback, useRef } from 'react'
 
 import Link from '#components/Link'
-import useLame from '#lamejs/useUploadContext'
+import useLame from '#hooks/useUploadContext'
 
 interface UploadButtonProps {
   label?: string

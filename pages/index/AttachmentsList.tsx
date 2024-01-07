@@ -1,11 +1,11 @@
 import BoxElement from '#components/BoxElement'
 import Icon from '#components/Icon'
-import useLame from '#lamejs/useUploadContext'
+import useUploadContext from '#hooks/useUploadContext'
 import { ICON_ID } from '#lib/icons/iconID'
 import UploadButton from '#pages/index/UploadButton'
 
 const AttachmentsList = () => {
-  const { attachments } = useLame()
+  const { attachments, removeAttachment } = useUploadContext()
 
   return (
     <div>
@@ -27,6 +27,12 @@ const AttachmentsList = () => {
               <p className="text-gray">
                 {(file.size / 1000 / 1000).toFixed(2)} <span className="text-sm">MB</span>
               </p>
+              <div
+                onPointerDown={() => removeAttachment(file.name)}
+                className=" bg-error rounded-full p-1 cursor-pointer"
+              >
+                <Icon icon={ICON_ID.Trash} className="text-white h-4 w-4" />
+              </div>
             </div>
           ))}
         </div>

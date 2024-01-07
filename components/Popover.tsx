@@ -1,6 +1,6 @@
 import tw from 'tailwind-styled-components'
 
-export default tw.div`
+export default tw.aside`
   fixed
   md:absolute
   top-0

@@ -16,6 +16,7 @@ import {
   PackageCheck,
   PencilRuler,
   Sailboat,
+  Trash2,
 } from 'lucide-react'
 
 import { ICON_ID } from './iconID'
@@ -40,6 +41,7 @@ const APP_ICON: ICON_TYPE = {
   [ICON_ID.AudioLines]: { component: AudioLines },
   [ICON_ID.Drum]: { component: Drum },
   [ICON_ID.FileVolume]: { component: FileVolume2 },
+  [ICON_ID.Trash]: { component: Trash2 },
 }
 
 export default APP_ICON

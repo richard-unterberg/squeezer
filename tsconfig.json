@@ -22,7 +22,7 @@
       "#hooks/*": ["./lib/hooks/*"],
       "#types/*": ["./lib/types/*"],
       "#pages/*": ["./pages/*"],
-      "#lamejs/*": ["./lamejs/*"],
+      "#lamejs/*": ["lib/lamejs/*"],
       "#lib/*": ["./lib/*"],
       "#layouts/*": ["./layouts/*"],
       "#renderer/*": ["renderer/*"],

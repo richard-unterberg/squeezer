@@ -11,4 +11,5 @@ export enum ICON_ID {
   AudioLines,
   Drum,
   FileVolume,
+  Trash,
 }

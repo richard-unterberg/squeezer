@@ -1,5 +1,7 @@
 import { WaveFileReader } from 'wavefile-reader'
 
+import { AppConfig } from '#lib/constants'
+
 const fileToArrayBuffer = (file: File) =>
   new Promise<ArrayBuffer>((resolve, reject) => {
     const blob = file.slice(0, file.size, file.type)
@@ -20,17 +22,22 @@ const fileToArrayBuffer = (file: File) =>
     reader.readAsArrayBuffer(blob)
   })
 
-interface ConvertToParams {
-  file: File
-  lameLib: typeof import('lamejs') | undefined
-}
-
 interface extendendWaveFileReader extends WaveFileReader {
   numChannels: number
   sampleRate: number
 }
 
-const convertTo = async ({ file, lameLib }: ConvertToParams) => {
+interface ConvertToParams {
+  file: File
+  lameLib: typeof import('lamejs') | undefined
+  outputBits?: number
+}
+
+const convertTo = async ({
+  file,
+  lameLib,
+  outputBits = AppConfig.defaultOutputBitrate,
+}: ConvertToParams) => {
   if (!lameLib) {
     throw new Error('lamejs is undefined')
   }
@@ -39,19 +46,17 @@ const convertTo = async ({ file, lameLib }: ConvertToParams) => {
     const reader = new WaveFileReader(new Uint8Array(arrayBuffer))
     const wavReaderFMT = reader.fmt as extendendWaveFileReader
 
-    const fileConfig = {
-      channels: wavReaderFMT.numChannels,
-      sampleRate: wavReaderFMT.sampleRate,
-      bitRate: 320,
-    }
-
-    const mp3encoder = new lameLib.Mp3Encoder(fileConfig.channels, fileConfig.sampleRate, 320)
+    const mp3encoder = new lameLib.Mp3Encoder(
+      wavReaderFMT.numChannels,
+      wavReaderFMT.sampleRate,
+      outputBits,
+    )
 
     const samples = new Int16Array(arrayBuffer)
     const mp3Data: Uint8Array[] = []
     const sampleBlockSize = 1152 * 2
 
-    if (fileConfig.channels === 1) {
+    if (wavReaderFMT.numChannels === 1) {
       // Mono channel processing
       for (let i = 0; i < samples.length; i += sampleBlockSize) {
         const chunk = samples.subarray(i, i + sampleBlockSize)
@@ -61,7 +66,7 @@ const convertTo = async ({ file, lameLib }: ConvertToParams) => {
           mp3Data.push(mp3buf)
         }
       }
-    } else if (fileConfig.channels === 2) {
+    } else if (wavReaderFMT.numChannels === 2) {
       // Stereo channel processing
       const left = new Int16Array(samples.length / 2)
       const right = new Int16Array(samples.length / 2)

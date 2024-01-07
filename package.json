@@ -1,5 +1,5 @@
 {
-  "name": "squeez",
+  "name": "squeezer",
   "version": "0.0.1",
   "description": "",
   "type": "module",
@@ -48,6 +48,7 @@
     "lucide-react": "^0.303.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-dropzone": "^14.2.3",
     "react-streaming": "^0.3.18",
     "styled-components": "^6.1.1",
     "tailwind-styled-components": "^2.2.0",
