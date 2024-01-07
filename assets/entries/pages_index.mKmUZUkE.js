@@ -1,4 +1,4 @@
-import{F as N,j as r,A as B,r as p,L as D,u as w,O as R,a as b,I as C,b as _,i as A,c as O,d as V}from"../chunks/chunk-fQI6svh-.js";import{_ as H}from"../chunks/chunk-FiRc7bbA.js";const W=N.div`
+import{F as N,j as r,A as B,r as p,L as D,u as w,O as R,a as b,I as C,b as _,i as A,c as O,d as V}from"../chunks/chunk-qoQQjsMU.js";import{_ as H}from"../chunks/chunk-FiRc7bbA.js";const W=N.div`
   p-5
   md:p-8
   m-0
