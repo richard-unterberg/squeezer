@@ -1,7 +1,10 @@
-# squeezer
+# squeezer (EXPERIMENTAL)
 ## browser based wav to mp3 converter
 
 Tired of searching for a reliable WAV to MP3 converter that doesn't come with limitations or require registrations? So was I. That's why I created this hassle-free solution to help you seamlessly convert your audio files in the browser. 🌊
+
+# ⚠️ EXPERIMENTAL
+Some of the output bitrates are not working properly and producing silent files. 320, 192, 128 working like a charm
 
 ## See it in [action](https://richard-unterberg.github.io/squeezer/)
 
